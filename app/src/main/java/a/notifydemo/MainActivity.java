@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         notificationManager.createNotificationChannel(channel);
     }
 
-    protected void sendNotification(View view) {
+    public void sendNotification(View view) {
 
         int notificationID = 101;
         Intent resultIntent = new Intent(this, ResultActivity.class);
@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
                 .setContentText("You've received new messages.")
                 .setSmallIcon(android.R.drawable.ic_dialog_info)
                 .setChannelId(channelID)
+                .setNumber(10)
                 .setContentIntent(pendingIntent)
                 .setActions(action)
                 .build();
