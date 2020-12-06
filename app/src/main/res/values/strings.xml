@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">NotifyDemo</string>
+    <string name="button_text">Уведомить</string>
 </resources>
