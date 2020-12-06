@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -40,6 +42,10 @@ public class MainActivity extends AppCompatActivity {
     protected void sendNotification(View view) {
 
         int notificationID = 101;
+        Intent resultIntent = new Intent(this, ResultActivity.class);
+
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, resultIntent,
+                PendingIntent.FLAG_UPDATE_CURRENT);
 
         String channelID = "a.notifydemo.news";
 
@@ -48,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
                 .setContentText("You've received new messages.")
                 .setSmallIcon(android.R.drawable.ic_dialog_info)
                 .setChannelId(channelID)
+                .setContentIntent(pendingIntent)
                 .build();
         notificationManager.notify(notificationID, notification);
     }
