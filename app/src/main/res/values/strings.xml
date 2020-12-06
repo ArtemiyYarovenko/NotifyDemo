@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">NotifyDemo</string>
     <string name="button_text">Уведомить</string>
+    <string name="textview_text">Result Activity</string>
 </resources>
