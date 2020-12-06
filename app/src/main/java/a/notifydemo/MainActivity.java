@@ -2,11 +2,13 @@ package a.notifydemo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,5 +37,18 @@ public class MainActivity extends AppCompatActivity {
         notificationManager.createNotificationChannel(channel);
     }
 
-}
+    protected void sendNotification(View view) {
+
+        int notificationID = 101;
+
+        String channelID = "a.notifydemo.news";
+
+        Notification notification =  new Notification.Builder(MainActivity.this, channelID)
+                .setContentTitle("New Message")
+                .setContentText("You've received new messages.")
+                .setSmallIcon(android.R.drawable.ic_dialog_info)
+                .setChannelId(channelID)
+                .build();
+        notificationManager.notify(notificationID, notification);
+    }
 }
